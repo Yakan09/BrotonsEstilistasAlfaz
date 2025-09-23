@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BROTONS ESTILISTAS ALFAZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/ico" href="./images/isb/favicon.jpg" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+            background: #1f1f1f;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* Carrusel */
+        .sliderimg {
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-caption h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+
+        .carousel-caption p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+            color: #fff;
+        }
+
+        /* Sección Local */
+        #local {
+            background: #f7f7f7;
+            color: #1f1f1f;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #local img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.5s;
+            border: 4px solid #d4af37;
+        }
+
+        #local img:hover {
+            transform: rotate(3deg) scale(1.05);
+            box-shadow: 0 0 20px #d4af37;
+        }
+
+        /* Conócenos */
+        #nosotros {
+            background: #ffffff;
+            color: #1f1f1f;
+            flex-direction: column;
+        }
+
+        .staff {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .staff img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4af37;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .staff img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #d4af37;
+        }
+
+        /* Cortes de pelo */
+        #cortes {
+            background: #f7f7f7;
+            color: #1f1f1f;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cortes-grid {
+            display: flex;
+            gap: 20px;
+        }
+
+        .cortes-grid img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.4s;
+            border: 4px solid #d4af37;
+        }
+
+        .cortes-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #d4af37;
+        }
+
+        /* Reseñas */
+        #testimonios {
+            background: #eaeaea;
+            color: #1f1f1f;
+            flex-direction: column;
+            padding: 40px 20px;
+        }
+
+        #testimonios h3 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .reviews-container {
+            width: 80%;
+            max-height: 60vh;
+            overflow: hidden;
+            margin: auto;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1f1f1f;
+            color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-col h4,
+        .footer-col h2 {
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .footer-col ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #d4af37;
+        }
+
+        .footer-social a {
+            text-decoration: none;
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            border-top: 1px solid #d4af37;
+            padding-top: 15px;
+        }
+
+        /* ===== BOTÓN FLOTANTE WHATSAPP (derecha) ===== */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #25d366;
+            color: #fff;
+            font-size: 1.4rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .whatsapp-fixed:hover {
+            transform: scale(1.06);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <h2>Brotons Estilistas Alfaz</h2>
+            <ul>
+                <li><a href="#local">Local</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#cortes">Cortes</a></li>
+                <li><a href="#testimonios">Opiniones</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Slider Bootstrap -->
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="sliderimg" style="background-image: url('./images/slider/slider2.jpg');"></div>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Peluquería</h1>
+                        <p>Tu estilo, nuestra pasión</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="sliderimg" style="background-image: url('./images/isb/uñas.jpeg');"></div>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Estética</h1>
+                        <p>Uñas y belleza con el mejor cuidado</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="sliderimg" style="background-image: url('./images/slider/slider3.jpg');"></div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>Masajes</h1>
+                        <p>Relájate y cuida tu bienestar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <!-- Local -->
+    <section id="local">
+        <h2>Nuestro Local</h2>
+        <div>
+            <img src="./images/isb/1.jpg" alt="Local">
+            <img src="./images/isb/9.jpg" alt="Local">
+            <img src="./images/isb/7.jpg" alt="Local">
+        </div>
+    </section>
+
+    <!-- Conócenos -->
+    <section id="nosotros">
+        <h2>Conócenos</h2>
+        <div class="staff">
+            <img src="./images/isb/personal_yoseba.jpg" alt="Trabajador 1">
+            <img src="./images/isb/personal_inma.jpg" alt="Trabajador 2">
+            <img src="./images/isb/personal_mari.jpeg" alt="Trabajador 3">
+        </div>
+    </section>
+
+    <!-- Cortes -->
+    <section id="cortes">
+        <h2>Nuestros cortes</h2>
+        <div class="cortes-grid">
+            <img src="./images/isb/pelo2.jpg" alt="Corte 1">
+            <img src="./images/isb/pelo3.jpg" alt="Corte 2">
+            <img src="./images/isb/pelo5.jpg" alt="Corte 3">
+        </div>
+    </section>
+
+
+    <!-- ===== BLOG / CONSEJOS DE BELLEZA ===== -->
+    <section id="blog" class="py-5 bg-light">
+        <div class="container">
+            <h2>Consejos de Belleza</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm animate__animated animate__fadeInUp">
+                        <img src="./images/isb/little-girl-getting-her-hair-straightened.jpg" class="card-img-top" alt="Mascarilla">
+                        <div class="card-body">
+                            <h5 class="card-title">Mascarillas para el cabello</h5>
+                            <p class="card-text">Aprende a nutrir tu cabello en casa con ingredientes naturales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-1s">
+                        <img src="./images/isb/uñas.jpeg" class="card-img-top" alt="Uñas">
+                        <div class="card-body">
+                            <h5 class="card-title">Cuidado de uñas</h5>
+                            <p class="card-text">Mantén tus uñas fuertes y saludables con estos simples tips.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm animate__animated animate__fadeInUp animate__delay-2s">
+                        <img src="./images/blog/masaje.jpg" class="card-img-top" alt="Masaje">
+                        <div class="card-body">
+                            <h5 class="card-title">Relajación en casa</h5>
+                            <p class="card-text">Técnicas de masaje facial y corporal para aliviar tensiones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Reseñas -->
+    <section id="testimonios">
+        <h3>Lo que dicen nuestros clientes</h3>
+        <div class="reviews-container" id="reviewsBox">
+            <!-- Asegúrate de usar un embed válido -->
+            <div class='sk-ww-google-reviews' data-embed-id='25602138'></div>
+        </div>
+    </section>
+
+    <style>
+        /* Reseñas - asegúrate de que tengan altura y fondo */
+        .reviews-container {
+            width: 100%;
+            max-width: 1200px;
+            height: 500px;
+            /* fija la altura */
+            margin: 0 auto;
+            overflow-y: hidden;
+            /* oculta scroll nativo */
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            position: relative;
+            background: white;
+        }
+    </style>
+
+
+    <script src='https://widgets.sociablekit.com/google-reviews/widget.js' defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const box = document.getElementById("reviewsBox");
+            let scrollSpeed = 1;
+            function autoScroll() {
+                if (box.scrollTop >= (box.scrollHeight - box.clientHeight)) {
+                    box.scrollTop = 0;
+                } else {
+                    box.scrollTop += scrollSpeed;
+                }
+            }
+            setInterval(autoScroll, 50);
+        });
+    </script>
+
+    <!-- ===== MAPA INTERACTIVO ===== -->
+    <section id="mapa" class="py-5">
+        <div class="container">
+            <h2>Encuéntranos</h2>
+            <div style="width:100%;height:400px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3135.2304804594196!2d-0.1066331884990211!3d38.580175671675946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6203af9d556951%3A0x95cbf195900b6958!2sBrotons%20Estilistas%20Alfaz!5e1!3m2!1ses!2ses!4v1758625633766!5m2!1ses!2ses" width="100%" height="100%"
+                    style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+
+
+                <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h2>Brotons Estilistas Alfaz</h2>
+                <p>Peluquería · Uñas · Masajes</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#cortes">Servicios</a></li>
+                    <li><a href="#testimonios">Opiniones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone-alt"></i> +34 604 53 69 94</p>
+                <p><i class="fas fa-envelope"></i> contacto@centroestetica.com</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/brotons_estilistas_alfaz/"><i class="fab fa-instagram"></i>
+                        @brotons_estilistas_alfaz</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Centro de Estética | Todos los derechos reservados</p>
+            <p class="credits">Diseño y desarrollo web por <span>Nakay</span></p>
+        </div>
+    </footer>
+    <!-- BOTÓN FLOTANTE WHATSAPP (solo ONE) -->
+    <a href="https://wa.me/34604536994" class="whatsapp-fixed" id="whatsappFloat" target="_blank" rel="noopener"
+        aria-label="Hablemos por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ===== ANIMACIONES CON Animate.css ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+</body>
+
+</html>
